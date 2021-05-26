@@ -4,7 +4,9 @@ import Cadre from "./Cadre";
 const CadreList = () => {
   return (
     <div className="cadreListDiv">
-      The list of cadres
+      <h3>List of cadres</h3>
+      <Cadre />
+      <Cadre />
       <Cadre />
     </div>
   );

@@ -1,22 +1,21 @@
 import React from 'react';
+import {IoArrowForward} from 'react-icons/io5';
 
 const Cadre = () => {
   return (
     <div className="cadreDiv mb-4">
-      <h5 className="font-weight-bolder">Shalom Chioma</h5>
-      <div className="font-italic">976 new road, kilcome, waterford</div>
+      <h5 className="font-weight-bolder">Manager</h5>
+      <div className="font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit </div>
       <div className="footer">
         <div className="d-flex mr-4">
-          {/*<IosMailOutline color="#C2C5D6" />*/}
           <span>Brad@gmail.com</span>
         </div>
         <div className="d-flex mr-4">
-          {/*<IosPhonePortrait color="#C2C5D6" />*/}
           <span>010-234-3849</span>
         </div>
         <div>
           <button className="arrowBtn">
-            {/*<MdArrowRoundForward color="white" />*/}
+            <IoArrowForward color="white" />
           </button>
         </div>
       </div>

@@ -9,7 +9,7 @@ const App = () => {
     <div>
       <div className="app">
         <div className="leftSide">
-          <div>
+          <div className="text-center">
             <div className='heading mb-2'>
               Accounting System
             </div>

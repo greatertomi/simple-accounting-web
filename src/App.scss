@@ -35,6 +35,12 @@ body {
   box-shadow: 6px 6px 3px 0 rgba(240, 240, 248, 1);
   -webkit-box-shadow: 6px 6px 3px 0 rgba(240, 240, 248, 1);
   -moz-box-shadow: 6px 6px 3px 0 rgba(240, 240, 248, 1);
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+  }
 }
 
 .arrowBtn {
@@ -54,7 +60,7 @@ body {
 .leftSide {
   display: flex;
   flex-direction: column;
-
+  width: 50vw;
   .heading {
     font-size: 45px;
     font-weight: 800;

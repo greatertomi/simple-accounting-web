@@ -8,10 +8,10 @@ const Cadre = () => {
       <div className="font-italic">Lorem ipsum dolor sit amet, consectetur adipisicing elit </div>
       <div className="footer">
         <div className="d-flex mr-4">
-          <span>Brad@gmail.com</span>
+          <span>&#8358;50,000</span>
         </div>
         <div className="d-flex mr-4">
-          <span>010-234-3849</span>
+          <span>0102343849</span>
         </div>
         <div>
           <button className="arrowBtn">

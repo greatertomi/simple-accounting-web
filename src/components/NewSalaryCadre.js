@@ -1,16 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import {FiXCircle} from 'react-icons/fi';
 import {BiArrowBack} from 'react-icons/bi';
 
 const NewSalaryCadre = () => {
+  const [deductions, setDeductions] = useState([
+    {
+      name: 'cat',
+      amount: 5000
+    },
+    {
+      name: 'rat',
+      amount: 15000
+    }
+  ])
+
   const handleAddDeduction = () => {
-    console.log('add deduction');
+    setDeductions([...deductions, {name: '', amount: ''}]);
+  }
+
+  const handleChange = () => {
+
   }
 
   const history = useHistory();
-
   return (
     <div className="newCadre">
       <h3>
@@ -24,19 +38,23 @@ const NewSalaryCadre = () => {
             <input type="text" className="form-control" id="cadreName" />
           </div>
           <h4 className="mt-4 fst-italic">Deductions</h4>
-          <div className="d-flex align-items-center mt-3">
-            <div className="me-2">
-              <label htmlFor="deductionName">Name</label>
-              <input type="text" className="form-control" id="deductionName" />
+          {deductions.map(({name, amount}, index) => (
+            <div className="d-flex align-items-center mt-3">
+              <div className="me-2">
+                <label htmlFor="deductionName">Name</label>
+                <input type="text" className="form-control" id="deductionName" value={name}
+                  onChange={handleChange}/>
+              </div>
+              <div className="me-2">
+                <label htmlFor="deductionAmount">Amount</label>
+                <input type="number" className="form-control" id="deductionAmount" value={amount}
+                  onChange={handleChange}/>
+              </div>
+              <div>
+                <FiXCircle size={30} className="formCancel"/>
+              </div>
             </div>
-            <div className="me-2">
-              <label htmlFor="deductionAmount">Amount</label>
-              <input type="number" className="form-control" id="deductionAmount" />
-            </div>
-            <div>
-              <FiXCircle size={30} className="formCancel"/>
-            </div>
-          </div>
+          ))}
           <button className="btn btn-link" onClick={handleAddDeduction}>Add deduction</button>
           <button className="purpleButton">Save</button>
         </form>

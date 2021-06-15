@@ -17,6 +17,7 @@ const AnalyseSalary = () => {
               <label htmlFor="">Cadre</label>
               <select className="form-control">
                 <option value="manager">Manager</option>
+                <option value="manager2">Manager 2</option>
               </select>
             </div>
             <div className="col-md-12 col-lg-6">
@@ -25,7 +26,7 @@ const AnalyseSalary = () => {
             </div>
           </div>
         </form>
-        <h3 className="mt-3">Result</h3>
+        <h3 className="mt-4">Result</h3>
         <div className="analysisResult">
           <div>Cadre: Manager</div>
           <div>Net Salary: $25,000</div>
@@ -35,8 +36,11 @@ const AnalyseSalary = () => {
             <div>Deduction #2: -4000</div>
             <div>Deduction #3: -4000</div>
           </div>
-          <div className="gross">
+          <div className="gross mt-3">
             Gross Salary: $20,000
+          </div>
+          <div className="text-end">
+            <button className="greenButton">Close</button>
           </div>
         </div>
       </div>

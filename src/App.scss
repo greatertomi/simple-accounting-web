@@ -111,10 +111,6 @@ body {
   }
 }
 
-.customModal {
-  color: black;
-}
-
 .formCancel {
   cursor: pointer;
   color: red;
@@ -131,7 +127,7 @@ body {
   padding-top: 30px;
   .pageForm {
     @extend .cadreListDiv;
-    height: 60vh;
+    height: 70vh;
     max-height: 90vh;
     width: 40%;
   }
@@ -149,7 +145,6 @@ body {
   color: white;
   padding: 10px 50px;
   position: relative;
-  bottom: -100%;
 }
 
 .backArrow {
@@ -162,4 +157,11 @@ body {
 
 .analysisResult {
   line-height: 30px;
+  .deductions {
+    font-size: 12px;
+  }
+  .gross {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }

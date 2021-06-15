@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import Cadre from "./Cadre";
 import {IoAddOutline} from 'react-icons/io5'
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
+import {Modal, ModalHeader, ModalBody, ModalFooter, Button} from "reactstrap";
+import {FiXCircle} from 'react-icons/fi'
 
 const CadreList = () => {
-  const [modal, setModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  const toggle = () => setModal(!modal)
+  const toggle = () => setShowModal(!showModal)
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -14,7 +15,7 @@ const CadreList = () => {
   }
 
   const renderModal = () => (
-    <Modal isOpen={modal} toggle={toggle} className="customModal">
+    <Modal isOpen={showModal} toggle={toggle} className="customModal">
       <ModalHeader toggle={toggle}>Analyse Salary</ModalHeader>
       <ModalBody>
         <form>
@@ -23,7 +24,7 @@ const CadreList = () => {
             <input type="text" className="form-control" id="cadreName" />
           </div>
           <h4 className="mt-4 fst-italic">Deductions</h4>
-          <div className="d-flex">
+          <div className="d-flex align-items-center">
             <div className="me-2">
               <label htmlFor="salary">Name</label>
               <input type="text" className="form-control" id="name" />
@@ -31,6 +32,9 @@ const CadreList = () => {
             <div>
               <label htmlFor="salary">Amount</label>
               <input type="number" className="form-control" id="salary" />
+            </div>
+            <div>
+              <FiXCircle size={30} className="formCancel"/>
             </div>
           </div>
           <button className="btn btn-link" onClick={handleClick}>Add deduction</button>

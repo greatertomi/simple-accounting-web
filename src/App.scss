@@ -114,3 +114,12 @@ body {
 .customModal {
   color: black;
 }
+
+.formCancel {
+  cursor: pointer;
+  color: red;
+  margin-top: 15px;
+  &:hover {
+    color: #9e0909;
+  }
+}

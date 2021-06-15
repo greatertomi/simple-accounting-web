@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
+import {useHistory} from 'react-router-dom';
+
 import Cadre from "./Cadre";
 import {IoAddOutline} from 'react-icons/io5'
-import CreateCadreModal from '../modals/CreateCadreModal';
 
 const CadreList = () => {
-  const [modal, setModal] = useState(false);
-  const toggle = () => setModal(!modal)
+  const history = useHistory();
 
   return (
     <div className="cadreListDiv">
@@ -14,12 +14,11 @@ const CadreList = () => {
       <Cadre />
       <Cadre />
       <div>
-        <button className="downloadBtn" onClick={toggle}>
+        <button className="downloadBtn" onClick={() => history.push('/new-cadre')}>
           <IoAddOutline color="white" size={30} />
           <span className="ml-4">Create New Cadre</span>
         </button>
       </div>
-      <CreateCadreModal toggle={toggle} isOpen={modal} />
     </div>
   );
 };

@@ -5,7 +5,7 @@ body {
   color: white;
 }
 
-.app {
+.landing {
   display: flex;
   justify-content: space-between;
   padding: 30px 20px;
@@ -122,4 +122,44 @@ body {
   &:hover {
     color: #9e0909;
   }
+}
+
+.newCadre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  .pageForm {
+    @extend .cadreListDiv;
+    height: 60vh;
+    max-height: 90vh;
+    width: 40%;
+  }
+}
+
+.purpleButton {
+  @extend .downloadBtn;
+  padding: 10px 50px;
+  position: relative;
+  bottom: -100%;
+}
+
+.greenButton {
+  @extend .arrowBtn;
+  color: white;
+  padding: 10px 50px;
+  position: relative;
+  bottom: -100%;
+}
+
+.backArrow {
+  cursor: pointer;
+  margin-right: 30px;
+  &:hover {
+    color: #B4B5BD;
+  }
+}
+
+.analysisResult {
+  line-height: 30px;
 }

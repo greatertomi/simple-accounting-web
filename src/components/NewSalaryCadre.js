@@ -3,6 +3,9 @@ import { useHistory } from "react-router-dom";
 
 import { FiXCircle } from "react-icons/fi";
 import { BiArrowBack } from "react-icons/bi";
+import axios from "axios";
+import { BASE_URL } from "../utils/constants";
+import { useToasts } from "react-toast-notifications";
 
 const NewSalaryCadre = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +18,14 @@ const NewSalaryCadre = () => {
     ],
   });
   const history = useHistory();
+  const { addToast } = useToasts();
+
+  const showToastedNote = (content, type) => {
+    addToast(content, {
+      appearance: type,
+      autoDismiss: true,
+    });
+  };
 
   const handleAddDeduction = (e) => {
     e.preventDefault();
@@ -39,12 +50,16 @@ const NewSalaryCadre = () => {
     }
   };
 
-  const handleSubmit = () => {
-    history.push({
-      pathname: "/",
-      state: { cadreCreated: true },
-    });
-    console.log("submitting ->", formData);
+  const handleSubmit = async () => {
+    try {
+      await axios.post(`${BASE_URL}/cadres`, formData);
+      history.push({
+        pathname: "/",
+        state: { cadreCreated: true },
+      });
+    } catch (err) {
+      showToastedNote("Error occurred while saving data.", "error");
+    }
   };
 
   return (

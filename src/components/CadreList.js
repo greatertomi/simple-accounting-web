@@ -5,14 +5,27 @@ import Cadre from "./Cadre";
 import { IoAddOutline } from "react-icons/io5";
 import axios from "axios";
 import { BASE_URL } from "../utils/constants";
+import { useToasts } from "react-toast-notifications";
 
 const CadreList = () => {
   const history = useHistory();
   const [cadres, setCadres] = useState([]);
+  const { addToast } = useToasts();
+
+  const showToastedNote = (content, type) => {
+    addToast(content, {
+      appearance: type,
+      autoDismiss: true,
+    });
+  };
 
   const fetchCadres = useCallback(async () => {
-    const res = await axios.get(`${BASE_URL}/cadres`);
-    setCadres(res.data);
+    try {
+      const res = await axios.get(`${BASE_URL}/cadres`);
+      setCadres(res.data);
+    } catch (err) {
+      showToastedNote("Error occurred while fetching data.", "error");
+    }
   }, []);
 
   useEffect(() => {

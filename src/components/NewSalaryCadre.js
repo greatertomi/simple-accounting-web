@@ -40,6 +40,10 @@ const NewSalaryCadre = () => {
   };
 
   const handleSubmit = () => {
+    history.push({
+      pathname: "/",
+      state: { cadreCreated: true },
+    });
     console.log("submitting ->", formData);
   };
 

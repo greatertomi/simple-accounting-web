@@ -1,23 +1,27 @@
 import React, { useEffect } from "react";
 import { BiPencil } from "react-icons/bi";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import CadreList from "./CadreList";
 import { useToasts } from "react-toast-notifications";
 
 const Landing = () => {
   const history = useHistory();
+  const location = useLocation();
   const { addToast } = useToasts();
 
-  const showToastedNote = () => {
-    addToast("New cadre created successfully", {
-      appearance: "success",
+  const showToastedNote = (content, type) => {
+    addToast(content, {
+      appearance: type,
       autoDismiss: true,
     });
   };
 
   useEffect(() => {
-    showToastedNote();
+    if (location.state?.cadreCreated) {
+      showToastedNote("New cadre created successfully", "success");
+      history.replace("/");
+    }
   }, []);
 
   return (

@@ -33,17 +33,18 @@ const AnalyseSalary = () => {
         <h3 className="mt-4">Result</h3>
         <div className="analysisResult">
           <div>Cadre: Manager</div>
-          <div>Net Salary: $25,000</div>
+          <div>Gross Salary: &#8358;25,000</div>
           <h5 className="my-2 fst-italic">Deductions</h5>
           <div className="deductions">
             <div>Deduction #1: -4000</div>
             <div>Deduction #2: -4000</div>
             <div>Deduction #3: -4000</div>
           </div>
-          <div className="gross mt-3">Gross Salary: $20,000</div>
+          <div className="gross mt-3">Net Salary: &#8358;20,000</div>
         </div>
         <div className="mt-3">
           <button className="greenButton">Analyse</button>
+          <button className="greyButton ms-4">Refresh</button>
         </div>
       </div>
     </div>

@@ -10,7 +10,7 @@ const NewSalaryCadre = () => {
     deductions: [
       {
         name: "",
-        amount: 0,
+        amount: "",
       },
     ],
   });
@@ -18,7 +18,7 @@ const NewSalaryCadre = () => {
 
   const handleAddDeduction = (e) => {
     e.preventDefault();
-    const deductions = [...formData.deductions, { name: "", amount: 0 }];
+    const deductions = [...formData.deductions, { name: "", amount: "" }];
     setFormData({ ...formData, deductions });
   };
 
@@ -110,7 +110,7 @@ const NewSalaryCadre = () => {
           </button>
         </form>
 
-        <button className="greenButton" onClick={handleSubmit}>
+        <button className="greenButton mt-4" onClick={handleSubmit}>
           Save
         </button>
       </div>

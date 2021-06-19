@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BiPencil } from "react-icons/bi";
-import CadreList from "./CadreList";
 import { useHistory } from "react-router-dom";
+
+import CadreList from "./CadreList";
+import { useToasts } from "react-toast-notifications";
 
 const Landing = () => {
   const history = useHistory();
+  const { addToast } = useToasts();
+
+  const showToastedNote = () => {
+    addToast("New cadre created successfully", {
+      appearance: "success",
+      autoDismiss: true,
+    });
+  };
+
+  useEffect(() => {
+    showToastedNote();
+  }, []);
+
   return (
     <div className="landing">
       <div className="leftSide">

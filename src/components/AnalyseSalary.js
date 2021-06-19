@@ -1,13 +1,17 @@
-import React from 'react';
-import {BiArrowBack} from 'react-icons/bi';
-import {useHistory} from 'react-router-dom';
+import React from "react";
+import { BiArrowBack } from "react-icons/bi";
+import { useHistory } from "react-router-dom";
 
 const AnalyseSalary = () => {
   const history = useHistory();
   return (
     <div className="newCadre">
       <h3>
-        <BiArrowBack size={40} className="backArrow" onClick={() => history.push('/')} />
+        <BiArrowBack
+          size={40}
+          className="backArrow"
+          onClick={() => history.push("/")}
+        />
         Analyse Salary
       </h3>
       <div className="pageForm mt-2">
@@ -36,12 +40,10 @@ const AnalyseSalary = () => {
             <div>Deduction #2: -4000</div>
             <div>Deduction #3: -4000</div>
           </div>
-          <div className="gross mt-3">
-            Gross Salary: $20,000
-          </div>
-          <div className="text-end">
-            <button className="greenButton">Close</button>
-          </div>
+          <div className="gross mt-3">Gross Salary: $20,000</div>
+        </div>
+        <div className="mt-3">
+          <button className="greenButton">Analyse</button>
         </div>
       </div>
     </div>

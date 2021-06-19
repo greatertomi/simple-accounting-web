@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+$breakpoint-tablet: 768px;
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -9,37 +10,45 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 30px 20px;
+  @media only screen and (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    padding: 30px 0;
+  }
 }
 
 .cadreListDiv {
-  height: 90vh;
-  width: 40vw;
   background: #f7f7ff;
   color: #262a41;
   padding: 30px 40px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  .footer {
-    display: flex;
-    justify-content: space-between;
+  overflow: auto;
+  @media only screen and (min-width: $breakpoint-tablet) {
+    height: 90vh;
+    width: 40vw;
+  }
+  @media only screen and (max-width: $breakpoint-tablet) {
+    margin: 40px 10px 10px;
+    padding: 20px 10px;
+    align-items: center;
   }
 }
 
 .cadreDiv {
   padding: 10px 25px;
   background: #fcfcff;
-  height: 120px;
+  max-height: 100%;
   width: 90%;
   border-radius: 15px;
   box-shadow: 6px 6px 3px 0 rgba(240, 240, 248, 1);
   -webkit-box-shadow: 6px 6px 3px 0 rgba(240, 240, 248, 1);
   -moz-box-shadow: 6px 6px 3px 0 rgba(240, 240, 248, 1);
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 12px;
+  .smallText {
+    font-size: 14px;
+  }
+  @media only screen and (max-width: $breakpoint-tablet) {
+    width: 95%;
   }
 }
 
@@ -70,6 +79,10 @@ body {
     background: #582D94;
     outline: none;
   }
+  @media only screen and (max-width: $breakpoint-tablet) {
+    position: relative;
+    bottom: unset;
+  }
 }
 
 .leftSide {
@@ -80,19 +93,27 @@ body {
     font-size: 45px;
     font-weight: 800;
   }
-
   .subHeading {
     color: #B4B5BD;
+  }
+  @media only screen and (max-width: $breakpoint-tablet) {
+    width: 100vw;
+    .heading {
+      font-size: 35px;
+      margin-bottom: 20px;
+    }
   }
 }
 
 .widgetDiv {
-  height: 50vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media only screen and (min-width: $breakpoint-tablet) {
+    height: 50vh;
+  }
 }
 
 .widget {
@@ -130,6 +151,14 @@ body {
     height: 70vh;
     max-height: 90vh;
     width: 40%;
+    @media only screen and (max-width: $breakpoint-tablet) {
+      width: 92%;
+      align-items: start;
+      margin-top: 25px !important;
+      .row > div {
+        margin-top: 10px;
+      }
+    }
   }
 }
 
@@ -137,7 +166,9 @@ body {
   @extend .downloadBtn;
   padding: 10px 50px;
   position: relative;
-  bottom: -100%;
+  bottom: inherit;
+  width: 200px;
+  margin-top: 15px;
 }
 
 .greenButton {
@@ -152,6 +183,10 @@ body {
   margin-right: 30px;
   &:hover {
     color: #B4B5BD;
+  }
+  @media only screen and (max-width: $breakpoint-tablet) {
+    position: absolute;
+    left: 10px;
   }
 }
 

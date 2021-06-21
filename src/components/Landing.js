@@ -22,6 +22,7 @@ const Landing = () => {
       showToastedNote("New cadre created successfully", "success");
       history.replace("/");
     }
+    // eslint-disable-next-line
   }, []);
 
   return (

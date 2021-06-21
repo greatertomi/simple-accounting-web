@@ -5,6 +5,7 @@ import axios from "axios";
 import { BASE_URL } from "../utils/constants";
 import { useToasts } from "react-toast-notifications";
 import { useQuery } from "react-query";
+import NumberFormat from "react-number-format";
 
 const AnalyseSalary = () => {
   const history = useHistory();
@@ -43,8 +44,11 @@ const AnalyseSalary = () => {
   };
 
   const analyzeSalary = (type) => {
-    console.log("formData -> ", formData);
     if (type === "analyse") {
+      const [cadre] = data.filter((e) => e._id === formData.cadre);
+      const totalDeduction = cadre.deductions.reduce((a, b) => a + b.amount, 0);
+      cadre.netSalary = +formData.salary - totalDeduction;
+      setCurrentCadre(cadre);
       setShowResult(true);
     } else {
       setFormData({ ...formData, salary: "" });
@@ -97,15 +101,24 @@ const AnalyseSalary = () => {
           <div>
             <h3 className="mt-4">Result</h3>
             <div className="analysisResult">
-              <div>Cadre: Manager</div>
-              <div>Gross Salary: &#8358;25,000</div>
+              <div>Cadre: {currentCadre.cadreName}</div>
+              <div>Gross Salary: &#8358;{formData.salary}</div>
               <h5 className="my-2 fst-italic">Deductions</h5>
               <div className="deductions">
-                <div>Deduction #1: -4000</div>
-                <div>Deduction #2: -4000</div>
-                <div>Deduction #3: -4000</div>
+                {currentCadre.deductions.map((e) => (
+                  <div key={e._id}>
+                    {e.name}: {e.amount}
+                  </div>
+                ))}
               </div>
-              <div className="gross mt-3">Net Salary: &#8358;20,000</div>
+              <div className="gross mt-3">
+                Net Salary: &#8358;
+                <NumberFormat
+                  value={currentCadre.netSalary}
+                  displayType="text"
+                  thousandSeparator
+                />
+              </div>
             </div>
           </div>
         )}
